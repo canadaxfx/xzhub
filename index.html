@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Xiao Zhan Universe · 肖战粉丝站导航</title>
+  <meta name="description" content="A complete directory of CanadaXFX fan sites dedicated to Xiao Zhan — galleries, archives, video, and more.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --gold: #C8A84B;
+      --gold-dim: rgba(200,168,75,0.15);
+      --gold-border: rgba(200,168,75,0.32);
+      --bg: #0e0e18;
+      --bg-card: rgba(255,255,255,0.04);
+      --bg-card-h: rgba(255,255,255,0.08);
+      --text: rgba(255,255,255,0.92);
+      --text-sub: rgba(255,255,255,0.55);
+      --text-dim: rgba(255,255,255,0.32);
+      --border: rgba(255,255,255,0.09);
+      --radius: 12px;
+    }
+
+    body {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ── Top accent bar ── */
+    .top-bar {
+      height: 3px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+
+    /* ── Header ── */
+    header {
+      text-align: center;
+      padding: 56px 24px 44px;
+      border-bottom: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+    }
+    header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 0%, rgba(200,168,75,0.11) 0%, transparent 68%);
+      pointer-events: none;
+    }
+    .site-label {
+      font-size: 10.5px;
+      letter-spacing: 3.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 18px;
+    }
+    header h1 {
+      font-size: clamp(1.9rem, 7.5vw, 3.4rem);
+      font-weight: 700;
+      line-height: 1.1;
+      white-space: nowrap;
+      margin-bottom: 4px;
+    }
+    header h1 em {
+      color: var(--gold);
+      font-style: italic;
+    }
+    .header-zh {
+      font-size: clamp(0.85rem, 2.5vw, 1rem);
+      color: var(--text-sub);
+      font-style: italic;
+      margin-bottom: 24px;
+      letter-spacing: 1px;
+    }
+
+    /* ── Header description — two bullet lines ── */
+    .header-bullets {
+      display: inline-flex;
+      flex-direction: column;
+      gap: 5px;
+      text-align: center;
+    }
+    .header-bullet {
+      font-size: 0.88rem;
+      color: var(--text-sub);
+      line-height: 1.5;
+    }
+    .header-bullet span {
+      color: var(--gold);
+      opacity: 0.7;
+      margin: 0 6px;
+    }
+
+    /* ── Main ── */
+    main {
+      flex: 1;
+      max-width: 980px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 48px 20px 64px;
+    }
+
+    /* ── Category section ── */
+    .category { margin-bottom: 48px; }
+    .category-header {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      margin-bottom: 18px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--gold-border);
+    }
+    .category-icon { font-size: 1rem; }
+    .category-name {
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      color: var(--gold);
+    }
+    .category-name-zh {
+      font-size: 0.85rem;
+      color: var(--text-dim);
+      font-style: italic;
+    }
+
+    /* ── Cards grid ── */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+      gap: 14px;
+    }
+
+    /* ── Card ── */
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      text-decoration: none;
+      color: inherit;
+      transition: background 0.2s, border-color 0.2s, transform 0.15s;
+    }
+    .card:hover {
+      background: var(--bg-card-h);
+      border-color: var(--gold-border);
+      transform: translateY(-2px);
+    }
+    .card-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 8px;
+    }
+    .card-names { flex: 1; }
+    .card-name {
+      font-size: 1.02rem;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.2;
+    }
+    .card-name-zh {
+      font-size: 0.8rem;
+      color: var(--gold);
+      font-style: italic;
+      margin-top: 2px;
+    }
+    .card-tag {
+      font-size: 10px;
+      letter-spacing: 0.5px;
+      color: var(--text-dim);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 2px 6px;
+      white-space: nowrap;
+      flex-shrink: 0;
+      align-self: flex-start;
+      margin-top: 2px;
+    }
+    .card-tag.yt { color: #ff7070; border-color: rgba(255,100,100,0.3); }
+
+    .card-divider {
+      height: 1px;
+      background: var(--border);
+      margin: 6px 0;
+    }
+    .card-desc-en {
+      font-size: 0.82rem;
+      color: var(--text-sub);
+      line-height: 1.5;
+    }
+    .card-desc-zh {
+      font-size: 0.8rem;
+      color: var(--text-dim);
+      line-height: 1.5;
+      font-style: italic;
+    }
+    .card-arrow {
+      font-size: 0.76rem;
+      color: var(--gold);
+      margin-top: 8px;
+      letter-spacing: 0.3px;
+    }
+    .card-arrow::after { content: ' →'; }
+    .card.yt .card-arrow { color: #ff8080; }
+
+    /* ── Footer ── */
+    footer {
+      text-align: center;
+      padding: 20px;
+      border-top: 1px solid var(--border);
+      font-size: 0.78rem;
+      color: var(--text-dim);
+      line-height: 1.8;
+    }
+    footer a { color: var(--gold); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    @media (max-width: 480px) {
+      header { padding: 36px 16px 30px; }
+      main { padding: 32px 14px 48px; }
+      .cards { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="top-bar"></div>
+
+<header>
+  <div class="site-label">CanadaXFX · Fan Sites</div>
+  <h1>Xiao Zhan <em>Universe</em></h1>
+  <div class="header-zh">肖战粉丝站</div>
+  <div class="header-bullets">
+    <div class="header-bullet">Galleries<span>·</span>Screen Works<span>·</span>Articles<span>·</span>Social Media</div>
+    <div class="header-bullet">Curated &amp; maintained by CanadaXFX</div>
+  </div>
+</header>
+
+<main>
+
+  <!-- Galleries -->
+  <section class="category">
+    <div class="category-header">
+      <span class="category-icon">📸</span>
+      <span class="category-name">Galleries</span>
+      <span class="category-name-zh">图库</span>
+    </div>
+    <div class="cards">
+
+      <a class="card" href="https://xz-studio-gallery.com/" target="_blank" rel="noopener">
+        <div class="card-top">
+          <div class="card-names">
+            <div class="card-name">XZ Studio Gallery</div>
+            <div class="card-name-zh">肖战工作室图库</div>
+          </div>
+          <span class="card-tag">Custom Domain</span>
+        </div>
+        <div class="card-divider"></div>
+        <div class="card-desc-en">Studio-released HD photos and videos, organized by year with bilingual descriptions.</div>
+        <div class="card-desc-zh">工作室高清图片与视频，按年份整理，附中英双语说明。</div>
+        <div class="card-arrow">Visit</div>
+      </a>
+
+      <a class="card" href="https://canadaxfx.github.io/XZ-HD-Gallery-Misc/" target="_blank" rel="noopener">
+        <div class="card-top">
+          <div class="card-names">
+            <div class="card-name">XZ HD Gallery Misc</div>
+            <div class="card-name-zh">高清综合图库</div>
+          </div>
+          <span class="card-tag">GitHub Pages</span>
+        </div>
+        <div class="card-divider"></div>
+        <div class="card-desc-en">HD photos and videos from events, endorsements, magazine shoots, and activities.</div>
+        <div class="card-desc-zh">活动、代言、杂志拍摄及日常的高清图片与视频。</div>
+        <div class="card-arrow">Visit</div>
+      </a>
+
+      <a class="card" href="https://canadaxfx.github.io/XZ-social-media-archive/" target="_blank" rel="noopener">
+        <div class="card-top">
+          <div class="card-names">
+            <div class="card-name">XZ Social Media Archive</div>
+            <div class="card-name-zh">社交媒体图库存档</div>
+          </div>
+          <span class="card-tag">GitHub Pages</span>
+        </div>
+        <div class="card-divider"></div>
+        <div class="card-desc-en">Posts and media archived from Weibo, Oasis, Instagram, and Douyin.</div>
+        <div class="card-desc-zh">微博、绿洲、Instagram、抖音平台图文帖子存档。</div>
+        <div class="card-arrow">Visit</div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- Screen Works & Video -->
+  <section class="category">
+    <div class="category-header">
+      <span class="category-icon">🎬</span>
+      <span class="category-name">Screen Works &amp; Video</span>
+      <span class="category-name-zh">影视与视频</span>
+    </div>
+    <div class="cards">
+
+      <a class="card" href="https://canadaxfx.github.io/XZworks/" target="_blank" rel="noopener">
+        <div class="card-top">
+          <div class="card-names">
+            <div class="card-name">Screen Arts of Xiao Zhan</div>
+            <div class="card-name-zh">肖战银幕艺术</div>
+          </div>
+          <span class="card-tag">GitHub Pages</span>
+        </div>
+        <div class="card-divider"></div>
+        <div class="card-desc-en">A visual journey through his dramas, films, and variety show works.</div>
+        <div class="card-desc-zh">影视、综艺及舞台作品视觉合集。</div>
+        <div class="card-arrow">Visit</div>
+      </a>
+
+      <a class="card" href="https://canadaxfx.github.io/XZYT/" target="_blank" rel="noopener">
+        <div class="card-top">
+          <div class="card-names">
+            <div class="card-name">XZYT</div>
+            <div class="card-name-zh">肖战 YouTube 合集</div>
+          </div>
+          <span class="card-tag">GitHub Pages</span>
+        </div>
+        <div class="card-divider"></div>
+        <div class="card-desc-en">Xiao Zhan content on YouTube — clips, MVs, and compilations all in one place.</div>
+        <div class="card-desc-zh">YouTube 上肖战相关视频聚合，含MV、片段与合集。</div>
+        <div class="card-arrow">Visit</div>
+      </a>
+
+      <a class="card yt" href="https://www.youtube.com/@CanadaXFX" target="_blank" rel="noopener">
+        <div class="card-top">
+          <div class="card-names">
+            <div class="card-name">CanadaXFX on YouTube</div>
+            <div class="card-name-zh">YouTube 频道</div>
+          </div>
+          <span class="card-tag yt">YouTube</span>
+        </div>
+        <div class="card-divider"></div>
+        <div class="card-desc-en">Our YouTube channel featuring fan edits, compilations, and highlights.</div>
+        <div class="card-desc-zh">我们的YouTube频道，含粉丝剪辑与精选集锦。</div>
+        <div class="card-arrow">Visit channel</div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- Articles & Archive -->
+  <section class="category">
+    <div class="category-header">
+      <span class="category-icon">📰</span>
+      <span class="category-name">Articles &amp; Archive</span>
+      <span class="category-name-zh">文章存档</span>
+    </div>
+    <div class="cards">
+
+      <a class="card" href="https://canadaxfx.github.io/XZ-article-archive/" target="_blank" rel="noopener">
+        <div class="card-top">
+          <div class="card-names">
+            <div class="card-name">XZ Article Archive</div>
+            <div class="card-name-zh">肖战文章存档</div>
+          </div>
+          <span class="card-tag">GitHub Pages</span>
+        </div>
+        <div class="card-divider"></div>
+        <div class="card-desc-en">Long-form articles about Xiao Zhan from across the web, preserved against deletion.</div>
+        <div class="card-desc-zh">肖战相关长篇文章存档，防止原文删除失传。</div>
+        <div class="card-arrow">Visit</div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- Social Media Hub -->
+  <section class="category">
+    <div class="category-header">
+      <span class="category-icon">📱</span>
+      <span class="category-name">Social Media Hub</span>
+      <span class="category-name-zh">社交媒体中心</span>
+    </div>
+    <div class="cards">
+
+      <a class="card" href="https://canadaxfx.github.io/xiaozhan/" target="_blank" rel="noopener">
+        <div class="card-top">
+          <div class="card-names">
+            <div class="card-name">Xiao Zhan Social Media Hub</div>
+            <div class="card-name-zh">肖战社交媒体中心</div>
+          </div>
+          <span class="card-tag">GitHub Pages</span>
+        </div>
+        <div class="card-divider"></div>
+        <div class="card-desc-en">Aggregated Xiao Zhan social media activity and updates across platforms.</div>
+        <div class="card-desc-zh">跨平台肖战社交媒体动态聚合中心。</div>
+        <div class="card-arrow">Visit</div>
+      </a>
+
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div>&copy; 2026 CanadaXFX &nbsp;·&nbsp; <a href="https://www.youtube.com/@CanadaXFX" target="_blank" rel="noopener">YouTube</a></div>
+  <div style="margin-top:4px">Not affiliated with Xiao Zhan or his management<br>非官方网站，版权归各原作者所有</div>
+</footer>
+
+</body>
+</html>
